@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <link rel="icon" href="cover.png">
+    <style>
+    body {
+      font-family: georgia;
+      font-size: 16px;
+      outline: none;
+      background-color: #121643;
+    }
+    audio {
+      width: 500px;
+      height: 100px;
+    }
+    div#box {
+      width: 600px;
+      height: 200px;
+      background-image: linear-gradient(0deg, #00aaff, #00ffff, #ffffff);
+      border: 10px solid black;
+    }
+    input {
+      width: 250px;
+      height: 30px;
+      background-color: #eeeeee;
+      border: 3px solid black;
+      outline: none;
+      border-radius: 5px;
+    }
+    input#stop {
+      width: 75px;
+    }
+    input#listen:active {
+      background-color: #aad9df;
+    }
+    input#laf:active {
+      background-color: #97c3ce;
+    }
+    input#sas:active {
+      background-color: #75a1ac;
+    }
+    input#cr:active {
+      background-color: #538f9a;
+    }
+    input#stop:active {
+      background-color: #316d78;
+    }
+    input#link:active {
+      background-color: grey;
+    }
+    </style>
+    <script>
+    function listen() { document.getElementById("music").innerHTML = "<audio autoplay loop src=\"1. Listen For Your Call.mp3\"></audio>"; }
+    function LaF() { document.getElementById("music").innerHTML = "<audio autoplay loop src=\"2. Lost and Found.mp3\"></audio>"; }
+    function SaS() { document.getElementById("music").innerHTML = "<audio autoplay loop src=\"3. Safe and Sound.mp3\"></audio>"; }
+    function CR() { document.getElementById("music").innerHTML = "<audio autoplay loop src=\"4. Coming Round.mp3\"></audio>"; }
+    function stopMusic() { document.getElementById("music").innerHTML = ""; }
+    </script>
+  </head>
+  <body>
+    <br><br>
+    <center>
+      <div id="box">
+        <br><br>
+        <input type="button" value="Listen For Your Call - 1f1n1ty (ft. Oncill)" onclick="listen()" id="listen"></input>
+        <input type="button" value="Lost and Found - 1f1n1ty" onclick="LaF()" id="laf"></input>
+        <br><br>
+        <input type="button" value="Safe and Sound - 1f1n1ty" onclick="SaS()" id="sas"></input>
+        <input type="button" value="Coming Round - 1f1n1ty" onclick="CR()" id="cr"></input>
+        <br><br>
+        <input type="button" value="Stop" onclick="stopMusic()" id="stop">
+        <br><br><br><br>
+        <a href="https://docs.google.com/document/d/1h4XfV_7EtIS1fTupnwln_SphuWmajAXwtfbYCTIneaA/edit?usp=sharing" target="_blank"><input type="button" value="Link to story" id="link"></input></a>
+        <div id="music"></div>
+      </div>
+    </center>
+  </body>
+</html>
