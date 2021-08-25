@@ -3,61 +3,58 @@
     <link rel="icon" href="cover.png">
     <title>Sub String Writing</title>
     <style>
-    body {
-      font-family: georgia;
-      font-size: 16px;
-      outline: none;
-      background-color: #121643;
-    }
-    pre {
-      font-family: georgia;
-      font-size: 16px;
-    }
-    audio {
-      width: 500px;
-      height: 100px;
-    }
-    div#box {
-      width: 650px;
-      height: 400px;
-      background-image: linear-gradient(0deg, #00aaff, #00ffff, #ffffff);
-      border: 10px solid black;
-    }
-    input {
-      width: 250px;
-      height: 30px;
-      background-color: #caf9ff;
-      border: 3px solid black;
-      outline: none;
-      border-radius: 5px;
-    }
-    input#listAu {
-      margin-right: 254px;
-    }
-    input#stop {
-      width: 75px;
-    }
-    input#listen:active, #listAu:active {
-      background-color: #aad9df;
-    }
-    input#laf:active {
-      background-color: #97c3ce;
-    }
-    input#sas:active {
-      background-color: #75a1ac;
-    }
-    input#cr:active {
-      background-color: #538f9a;
-    }
-    input#all:active {
-      background-image: linear-gradient(to right, white, #aad9df, #97c3ce, #75a1ac, #538f9a, #316d78, black);
-    }
-    input#stop:active {
-      background-color: #316d78;
-    }
-    input#link:active {
-      background-color: grey;
-    }
+      body {
+        font-family: georgia;
+        font-size: 16px;
+        outline: none;
+        background-color: #121643;
+      }
+      pre {
+        font-family: georgia;
+        font-size: 16px;
+      }
+      audio {
+        width: 500px;
+        height: 100px;
+      }
+      div#box {
+        width: 650px;
+        height: 350px;
+        background-image: linear-gradient(0deg, #00aaff, #00ffff, #ffffff);
+        border: 10px solid black;
+      }
+      input {
+        width: 250px;
+        height: 30px;
+        background-color: #caf9ff;
+        border: 3px solid black;
+        outline: none;
+        border-radius: 5px;
+      }
+      input#stop {
+        width: 75px;
+      }
+      input#listen:active {
+        background-color: #aad9df;
+      }
+      input#laf:active {
+        background-color: #97c3ce;
+      }
+      input#sas:active {
+        background-color: #75a1ac;
+      }
+      input#cr:active {
+        background-color: #538f9a;
+      }
+      input#all:active {
+        background-image: linear-gradient(to right, white, #aad9df, #97c3ce, #75a1ac, #538f9a, #316d78, black);
+      }
+      input#stop:active {
+        background-color: #316d78;
+      }
+      input#link:active {
+        background-color: grey;
+      }
     </style>
     <script>
       function listen() { document.getElementById("music").innerHTML = "<audio autoplay loop src=\"1. Listen For Your Call.mp3\"></audio>"; }
@@ -66,18 +63,16 @@
       function CR() { document.getElementById("music").innerHTML = "<audio autoplay loop src=\"4. Coming Round.mp3\"></audio>"; }
       function playAll() { document.getElementById("music").innerHTML = "<audio autoplay src=\"Sub String Full Cut.mp3\"></audio>" }
       function stopMusic() { document.getElementById("music").innerHTML = ""; }
-      function listAu() { document.getElementById("music").innerHTML = "<audio autoplay loop src=\"Listen For Your Call Audio.mp3\"></audio>"; }
+      function link() { window.open("https://docs.google.com/document/d/1h4XfV_7EtIS1fTupnwln_SphuWmajAXwtfbYCTIneaA/edit?usp=sharing", "blank"); }
     </script>
   </head>
   <body>
     <br><br>
     <center>
       <div id="box">
-        <br><br><br>
+        <br><br>
         <input type="button" value="Listen For Your Call - 1f1n1ty (ft. Oncill)" onclick="listen()" id="listen"></input>
         <input type="button" value="Lost and Found - 1f1n1ty" onclick="LaF()" id="laf"></input>
-        <br>
-        <input type="button" value="Listen For Your Call (Audio only)" onclick="listAu()" id="listAu"></input>
         <pre>An Unanswered Call                         A Simplistic Rhapsody</pre>
         <br>
         <input type="button" value="Safe and Sound - 1f1n1ty" onclick="SaS()" id="sas"></input>
@@ -90,7 +85,7 @@
         <div id="music"></div>
       </div>
       <br><br>
-      <a href="https://docs.google.com/document/d/1h4XfV_7EtIS1fTupnwln_SphuWmajAXwtfbYCTIneaA/edit?usp=sharing" target="_blank"><input type="button" value="Link to story" id="link"></input></a>
+      <input type="button" value="Link to story" id="link" onclick="link()"></input>
     </center>
   </body>
 </html>
