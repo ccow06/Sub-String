@@ -103,36 +103,48 @@
       var fullRun = false;
       var paused = false;
       var storage = [];
-      function listen() {
-        document.getElementById("music").innerHTML = "<audio id='musica' autoplay loop src=\"1. Listen For Your Call.mp3\"></audio>";
+      var song = 0;
+      const songID = setInterval(nextPlay, 1000);
+      function listen(tog) {
+        var t;
+        if (tog) { t = "loop" }
+        document.getElementById("music").innerHTML = "<audio id='musica' autoplay " + t + " src=\"1. Listen For Your Call.mp3\"></audio>";
         document.getElementById("title").innerHTML = "▶ An Unanswered Call ";
         document.getElementById("body").style.animationDuration = "25s";
         document.getElementById("bod").style.backgroundColor = "#FFCCDD08";
         document.getElementById("CRthing").style.backgroundColor = "#00000000";
       }
-      function listenA() {
-        document.getElementById("music").innerHTML = "<audio id='musica' autoplay loop src=\"listen novocal.mp3\"></audio>";
+      function listenA(tog) {
+        var t;
+        if (tog) { t = "loop" }
+        document.getElementById("music").innerHTML = "<audio id='musica' autoplay " + t + " src=\"listen novocal.mp3\"></audio>";
         document.getElementById("title").innerHTML = "▶ An Unanswered Call ";
         document.getElementById("body").style.animationDuration = "25s";
         document.getElementById("bod").style.backgroundColor = "#FFCCDD08";
         document.getElementById("CRthing").style.backgroundColor = "#00000000";
       }
-      function LaF() {
-        document.getElementById("music").innerHTML = "<audio id='musica' autoplay loop src=\"2. Lost and Found.mp3\"></audio>";
+      function LaF(tog) {
+        var t;
+        if (tog) { t = "loop" }
+        document.getElementById("music").innerHTML = "<audio id='musica' autoplay " + t + " src=\"2. Lost and Found.mp3\"></audio>";
         document.getElementById("title").innerHTML = "▶ A Simplistic Rhapsody ";
         document.getElementById("body").style.animationDuration = "15s";
         document.getElementById("bod").style.backgroundColor = "#45195533";
         document.getElementById("CRthing").style.backgroundColor = "#00000011";
       }
-      function SaS() {
-        document.getElementById("music").innerHTML = "<audio id='musica' autoplay loop src=\"3. Safe and Sound.mp3\"></audio>";
+      function SaS(tog) {
+        var t;
+        if (tog) { t = "loop" }
+        document.getElementById("music").innerHTML = "<audio id='musica' autoplay " + t + " src=\"3. Safe and Sound.mp3\"></audio>";
         document.getElementById("title").innerHTML = "▶ An Unending Symphony ";
         document.getElementById("body").style.animationDuration = "6s";
         document.getElementById("bod").style.backgroundColor = "#5F115033";
         document.getElementById("CRthing").style.backgroundColor = "#00000044";
       }
-      function CR() {
-        document.getElementById("music").innerHTML = "<audio id='musica' autoplay loop src=\"4. Coming Round.mp3\"></audio>";
+      function CR(tog) {
+        var t;
+        if (tog) { t = "loop" }
+        document.getElementById("music").innerHTML = "<audio id='musica' autoplay " + t + " src=\"4. Coming Round.mp3\"></audio>";
         document.getElementById("title").innerHTML = "▶ The Melody Calls For Me ";
         document.getElementById("body").style.animationDuration = "2s";
         document.getElementById("bod").style.backgroundColor = "#66000055";
@@ -143,22 +155,40 @@
         /* document.getElementById("music").innerHTML = "<audio autoplay src=\"Sub String Full Cut.mp3\"></audio>"
         document.getElementById("title").innerHTML = "▶";
         rdocument.getElementById("body").style.animationDuration = "35s"; */
-        listen();
-        id[0] = setTimeout(LaF, 66000);
+        listen(false);
+        song = 1;
+        // tryna make it so the next one will play once it's stopped, also accounting for the Stop and Pause buttons (the latter of which is a pain in my side)
+        /* id[0] = setTimeout(LaF, 66000);
         id[1] = setTimeout(SaS, 184000);
         id[2] = setTimeout(CR, 252000);
-        setTimeout(stopMusic, 403500);
+        setTimeout(stopMusic, 403500); */
+      }
+      function nextPlay() {
+        if (document.getElementById("musica").ended && fullRun) {
+          if (song == 1) {
+            LaF(false);
+          } else if (song == 2) {
+            SaS(false);
+          } else if (song == 3) {
+            CR(false);
+          } else if (song == 4) {
+            stopMusic();
+            return;
+          }
+          song++;
+        }
       }
       function stopMusic() {
         document.getElementById("music").innerHTML = "";
         document.getElementById("title").innerHTML = "...";
         document.getElementById("body").style.animationDuration = "75s"; // might work better if i have more frames
-        window.clearTimeout(id[0]);
-        window.clearTimeout(id[1]);
-        window.clearTimeout(id[2]);
+        clearInterval(songID);
+        // window.clearTimeout(id[1]);
+        // window.clearTimeout(id[2]);
         fullRun = false;
         document.getElementById("bod").style.backgroundColor = "#00000000";
         document.getElementById("CRthing").style.backgroundColor = "#00000000";
+        song = 0;
       }
       function pauss() {
         if (fullRun) {
@@ -195,16 +225,16 @@
             <br><br>
             <table>
               <tr>
-              <td><input type="button" value="Listen For Your Call - 1f1n1ty (ft. Oncill)" onclick="listen()" id="listen"></input><br>
-              <input type="button" value="Listen For Your Call, Audio Only" onclick="listenA()" id="listenO"></input><br><br>
+              <td><input type="button" value="Listen For Your Call - 1f1n1ty (ft. Oncill)" onclick="listen(true)" id="listen"></input><br>
+              <input type="button" value="Listen For Your Call, Audio Only" onclick="listenA(true)" id="listenO"></input><br><br>
               <label for="listenO">An Unanswered Call</label></td>
-              <td><input type="button" value="Lost and Found - 1f1n1ty" onclick="LaF()" id="laf"></input><br><br>
+              <td><input type="button" value="Lost and Found - 1f1n1ty" onclick="LaF(true)" id="laf"></input><br><br>
               <label for="laf">A Simplistic Rhapsody</label></td>
               </tr>
               <tr>
-                <td><br><input type="button" value="Safe and Sound - 1f1n1ty" onclick="SaS()" id="sas"></input><br><br>
+                <td><br><input type="button" value="Safe and Sound - 1f1n1ty" onclick="SaS(true)" id="sas"></input><br><br>
                   <label for="sas">An Unending Symphony</label></td>
-                <td><br><input type="button" value="Coming Round - 1f1n1ty" onclick="CR()" id="cr"></input><br><br>
+                <td><br><input type="button" value="Coming Round - 1f1n1ty" onclick="CR(true)" id="cr"></input><br><br>
                 <label for="cr">The Melody Calls For Me</label></td>
                 <br>
               </tr>
