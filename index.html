@@ -189,28 +189,17 @@
         document.getElementById("bod").style.backgroundColor = "#00000000";
         document.getElementById("CRthing").style.backgroundColor = "#00000000";
         song = 0;
-      }
+        if (paused) { pauss(); }
+       }
       function pauss() {
-        if (fullRun) {
-          if (paused) {
-            document.getElementById("pause").value = "Pause";
-            document.getElementById("musica").play();
-            paused = false;
-          } else {
-            document.getElementById("pause").value = "Play";
-            document.getElementById("musica").pause();
-            paused = true;
-          }
+        if (paused) {
+          document.getElementById("pause").value = "Pause";
+          document.getElementById("musica").play();
+          paused = false;
         } else {
-          if (paused) {
-            document.getElementById("pause").value = "Pause";
-            document.getElementById("musica").play();
-            paused = false;
-          } else {
-            document.getElementById("pause").value = "Play";
-            document.getElementById("musica").pause();
-            paused = true;
-          }
+          document.getElementById("pause").value = "Play";
+          document.getElementById("musica").pause();
+          paused = true;
         }
       }
       function link() { window.open("https://docs.google.com/document/d/1h4XfV_7EtIS1fTupnwln_SphuWmajAXwtfbYCTIneaA/edit?usp=sharing", "blank"); }
@@ -225,16 +214,16 @@
             <br><br>
             <table>
               <tr>
-              <td><input type="button" value="Listen For Your Call - 1f1n1ty (ft. Oncill)" onclick="listen(true)" id="listen"></input><br>
+              <td><input type="button" value="Listen For Your Call - Onefin (ft. Oncill)" onclick="listen(true)" id="listen"></input><br>
               <input type="button" value="Listen For Your Call, Audio Only" onclick="listenA(true)" id="listenO"></input><br><br>
               <label for="listenO">An Unanswered Call</label></td>
-              <td><input type="button" value="Lost and Found - 1f1n1ty" onclick="LaF(true)" id="laf"></input><br><br>
+              <td><input type="button" value="Lost and Found - Onefin" onclick="LaF(true)" id="laf"></input><br><br>
               <label for="laf">A Simplistic Rhapsody</label></td>
               </tr>
               <tr>
-                <td><br><input type="button" value="Safe and Sound - 1f1n1ty" onclick="SaS(true)" id="sas"></input><br><br>
+                <td><br><input type="button" value="Safe and Sound - Onefin" onclick="SaS(true)" id="sas"></input><br><br>
                   <label for="sas">An Unending Symphony</label></td>
-                <td><br><input type="button" value="Coming Round - 1f1n1ty" onclick="CR(true)" id="cr"></input><br><br>
+                <td><br><input type="button" value="Coming Round - Onefin" onclick="CR(true)" id="cr"></input><br><br>
                 <label for="cr">The Melody Calls For Me</label></td>
                 <br>
               </tr>
